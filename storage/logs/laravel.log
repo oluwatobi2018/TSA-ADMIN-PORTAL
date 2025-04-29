@@ -1,0 +1,4 @@
+[2025-04-29 10:10:30] local.INFO: User successfully logged in. {"user_id":1}  
+[2025-04-29 10:12:05] local.ERROR: Database connection failed. {"exception":"PDOException","message":"SQLSTATE[HY000] [2002] Connection refused"}  
+[2025-04-29 10:15:45] local.WARNING: Password mismatch attempt for user ID 1. {"user_id":1}  
+[2025-04-29 10:18:23] local.DEBUG: User profile updated successfully. {"user_id":1,"changes":{"email":"newemail@example.com"}}  
