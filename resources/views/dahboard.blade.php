@@ -8,7 +8,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Dashboard</h5>
+                    <h5 class="card-title">Users</h5>
                     <p class="card-text">Create, edit, or delete user accounts.</p>
                     <a href="{{route('users.index') }}" class="btn btn-primary">Go to Users</a>
                 </div>
