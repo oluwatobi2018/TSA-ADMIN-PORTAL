@@ -29,6 +29,7 @@ class CreateContactRequest extends FormRequest
             'name' => 'required|string|max:100',       // Name is required and can have a maximum of 100 characters
             'phone' => 'required|string|max:20',       // Phone number is required and can have a maximum of 20 characters
             'email' => 'nullable|email|max:100',       // Email is optional, but if provided, it must be a valid email and no longer than 100 characters
+            'contact_type' => ['required', 'in:client,supplier,partner'],  //Contact type dropdown for users to select 
         ];
     }
 
