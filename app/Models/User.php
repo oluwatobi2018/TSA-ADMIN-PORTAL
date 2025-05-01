@@ -22,6 +22,7 @@ class User extends Authenticatable
         'full_name',
         'contact_number',
         'email',
+        'role', // Added role here
     ];
 
     /**
@@ -51,4 +52,3 @@ class User extends Authenticatable
         return $this->hasMany(Contact::class);
     }
 }
-
