@@ -28,6 +28,7 @@ class UpdateContactRequest extends FormRequest
             'name' => 'required|string|max:100',      // Contact name is required, max length of 100 characters
             'phone' => 'required|string|max:20',      // Phone number is required, max length of 20 characters
             'email' => 'nullable|email|max:100',      // Email is optional, but if provided, must be a valid email and max length 100
+             'contact_type' => ['required', 'in:client,supplier,partner'],  //contact type dropdown for users to choose from
         ];
     }
 
