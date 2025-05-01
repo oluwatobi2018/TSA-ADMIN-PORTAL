@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('full_name');  // Full name of the user
             $table->string('contact_number', 20)->nullable();  // Optional contact number
             $table->string('email')->unique();  // Unique email address for the user
+            $table->string('role')->default('user'); // User role, default is 'user'
+            $table->rememberToken(); // Optional for authentication
             $table->timestamps();  // Created and updated timestamps
-
-            // You can add additional fields like role, status, etc., depending on your needs
         });
     }
 
