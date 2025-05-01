@@ -30,6 +30,7 @@ class CreateUserRequest extends FormRequest
             'full_name' => 'required|string|max:100',            // Full name is required and max length of 100 characters
             'contact_number' => 'nullable|string|max:20',        // Contact number is optional, but if provided, max 20 characters
             'email' => 'required|email|unique:users|max:100',    // Email is required and must be unique in the `users` table
+            'role' => 'required|in:user,admin',      //Dropdown to choose user role
         ];
     }
 
