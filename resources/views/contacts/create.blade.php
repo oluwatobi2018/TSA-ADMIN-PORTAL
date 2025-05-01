@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="{{route('contacts.store') }}" method="POST">
+    <form action="{{ route('contacts.store') }}" method="POST">
         @csrf
 
         <div class="form-group mb-3">
@@ -25,7 +25,7 @@
                 name="name"
                 id="name"
                 class="form-control"
-                value="{{old('name') }}"
+                value="{{ old('name') }}"
                 required
             >
         </div>
@@ -37,7 +37,7 @@
                 name="phone"
                 id="phone"
                 class="form-control"
-                value="{{old('phone') }}"
+                value="{{ old('phone') }}"
                 required
             >
         </div>
@@ -49,12 +49,27 @@
                 name="email"
                 id="email"
                 class="form-control"
-                value="{{old('email') }}"
+                value="{{ old('email') }}"
             >
         </div>
 
+        <div class="form-group mb-3">
+            <label for="contact_type">Contact Type</label>
+            <select
+                name="contact_type"
+                id="contact_type"
+                class="form-control"
+                required
+            >
+                <option value="" disabled selected>Select type</option>
+                <option value="client" {{ old('contact_type') == 'client' ? 'selected' : '' }}>Client</option>
+                <option value="supplier" {{ old('contact_type') == 'supplier' ? 'selected' : '' }}>Supplier</option>
+                <option value="partner" {{ old('contact_type') == 'partner' ? 'selected' : '' }}>Partner</option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">Create Contact</button>
-        <a href="{{route('contacts.index') }}" class="btn btn-secondary">Cancel</a>
+        <a href="{{ route('contacts.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 @endsection
