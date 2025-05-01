@@ -93,6 +93,15 @@
             >
         </div>
 
+        <div class="form-group mb-3">
+            <label for="role">Role</label>
+            <select name="role" id="role" class="form-control" required>
+                <option value="">Select Role</option>
+                <option value="user" {{ old('role') == 'user' ? 'selected' : '' }}>User</option>
+                <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-primary">Create User</button>
         <a href="{{ route('users.index') }}" class="btn btn-secondary">Cancel</a>
     </form>
