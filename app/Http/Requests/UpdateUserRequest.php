@@ -13,9 +13,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        // You can add custom logic here to check if the user is authorized to update their information.
-        // For now, let's allow all users to update their data.
-        return true; // Allow all users (you can modify this as needed)
+        return true; // You can add custom authorization logic here if needed
     }
 
     /**
@@ -28,11 +26,12 @@ class UpdateUserRequest extends FormRequest
         $userId = $this->route('user'); // Get the user ID from the route parameter
 
         return [
-            'username' => 'required|unique:users,username,' . $userId . '|min:4|max:50', // Make sure the username is unique, except for the current user
-            'password' => 'nullable|min:6',  // Password is optional. If provided, it must be at least 6 characters long
-            'full_name' => 'required|string|max:100', // Full name is required
-            'contact_number' => 'nullable|string|max:20', // Contact number is optional, but if provided, max 20 characters
-            'email' => 'required|email|unique:users,email,' . $userId, // Make sure the email is unique, except for the current user
+            'username' => 'required|unique:users,username,' . $userId . '|min:4|max:50',
+            'password' => 'nullable|min:6',
+            'full_name' => 'required|string|max:100',
+            'contact_number' => 'nullable|string|max:20',
+            'email' => 'required|email|unique:users,email,' . $userId,
+            'role' => 'required|in:user,admin', // New rule for role
         ];
     }
 
@@ -50,6 +49,8 @@ class UpdateUserRequest extends FormRequest
             'full_name.required' => 'The full name is required.',
             'email.required' => 'The email address is required.',
             'email.unique' => 'The email address has already been taken.',
+            'role.required' => 'The user role is required.',
+            'role.in' => 'The selected role is invalid. Choose either "user" or "admin".',
         ];
     }
 }
