@@ -19,6 +19,7 @@ class CreateContactsTable extends Migration
             $table->string('name');  // Contact name
             $table->string('phone', 20);  // Contact phone number (up to 20 characters)
             $table->string('email', 100)->nullable();  // Contact email (optional, up to 100 characters)
+            $table->enum('contact_type', ['client', 'supplier', 'partner']); // Contact type dropdown
             $table->timestamps();  // Created and updated timestamps
 
             // Define the foreign key relationship
